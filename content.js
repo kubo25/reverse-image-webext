@@ -1,6 +1,4 @@
 document.addEventListener("contextmenu", function(e){
-    var message = null;
-    
     if(e.target.tagName === "IMG"){
         message = e.target.src;
     }
@@ -13,6 +11,9 @@ document.addEventListener("contextmenu", function(e){
         
         if((/\.(gif|jpg|jpeg|tiff|tif|png|bmp|webp)/).test(url)){
             message = url.slice(1, -1);
+        }
+        else if(url === ""){
+            message = null;
         }
         else{
             message = "unsupported";

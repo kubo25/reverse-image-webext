@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Google Reverse Image Seach Webextension",
-    "version": "1.0",
+    "version": "1.11",
 
     "description": "Adds Google Image Search to right-click menu on images.",
 
