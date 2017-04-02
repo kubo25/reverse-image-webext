@@ -12,7 +12,14 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
             var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 
             gettingActiveTab.then((tabs) => {
-              browser.tabs.sendMessage(tabs[0].id, "alert");
+              browser.tabs.sendMessage(tabs[0].id, "null");
+            });
+        }
+        else if(message === "unsupported"){
+            var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+
+            gettingActiveTab.then((tabs) => {
+              browser.tabs.sendMessage(tabs[0].id, "unsupported");
             });
         }
         else{
