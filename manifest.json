@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Google Reverse Image Seach Webextension",
+    "version": "0.1",
+
+    "description": "Adds Google Image Search to right-click menu on images.",
+
+    "icons": {
+        "48": "img/icon.png"
+    },
+
+    "background":{
+        "scripts": ["search.js"]
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["*://hikarinoakariost.info/*"],
+        "js": ["content.js"]
+      }
+    ],
+    
+    "permissions":[
+        "contextMenus",
+        "activeTab"
+    ]
+}
