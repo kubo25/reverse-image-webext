@@ -1,11 +1,22 @@
 document.addEventListener("contextmenu", function(e){
-    let message;
+    var message = null;
     
     if(e.target.tagName === "IMG"){
         message = e.target.src;
-        browser.runtime.sendMessage(message);
+    }
+    else{
+        var img = e.target;
+        var style = img.currentStyle || window.getComputedStyle(img, false);
+        var url = style.backgroundImage.slice(4, -1);
+        
+        if(url !== ""){
+            message = url.slice(1, -1);
+        }
     }
     
+    browser.runtime.sendMessage(message);
 });
 
-browser.runtime.onMessage.addListener()
+browser.runtime.onMessage.addListener(function(message){
+    alert("No image selected!");
+});
